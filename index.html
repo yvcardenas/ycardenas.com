@@ -5,7 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="/media/slogoblack.png"/>
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/styles.css" media="screen">
+        <link rel="stylesheet" href="css/index.css" media="screen">
+        <script src="/js/theme.js" defer></script>
         <!-- Custome Font from Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +17,15 @@
     <body>
         <header>
             <nav class="navbar">
-                <img src="/media/slogoblack.png" alt="My Logo" class="logo"/>
+                <img src="/media/slogoblack.png" alt="My Logo" class="logo" id="logo"/>
                 <h1>ycardenas.com</h1>
+
+                <label class="theme-toggle js-theme-toggle">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round">
+                        <span class="toggle-icon" id="toggle-icon">🌙</span>
+                    </span>
+                </label>
 
                 <input type="checkbox" id="menu-toggle"/>
 
@@ -34,6 +43,11 @@
                     <li><a href="/html/contact.html">Contact Me</a></li>
                 </ul>
             </nav>
+            <noscript>
+                <p style="color: red; text-align: center; padding: 0.5rem; font-size: 1rem;">
+                    Dark Mode is unavailable because JavaScript is disabled.
+                </p>
+            </noscript>
         </header>
         <main>
             <section class="left">
@@ -50,36 +64,3 @@
         </footer>
     </body>
 </html>
-
-<!-- <section>
-                <h3>Quick Facts</h3>
-                <dl>
-                    <dt>Major</dt>
-                    <dd>Computer Science</dd>
-                    <dt>Graduation</dt>
-                    <dd>June 2026</dd>
-                </dl>
-            </section>
-
-            <section>
-                <h3>Search for Projects</h3>
-                <form>
-                    <label for="project-search">Project Search:</label>
-                    <input type="search" id="project-search" name="project-search" list="project-list" placeholder="Enter a project name...">
-                    <datalist id="project-list">
-                        <option value="Developer Journal"></option>
-                        <option value="Entertainment Recommender"></option>
-                    </datalist>
-
-                    <label for="category-select">Filter by Category:</label>
-                    <select id="category-select" name="category-select">
-                        <optgroup label="Technical Projects">
-                            <option value="web-development">Web Development</option>
-                            <option value="data-science">Data Science</option>
-                        </optgroup>
-                        <optgroup label="Other Projects">
-                            <option value="research">Research</option>
-                        </optgroup>
-                    </select>
-                </form>
-            </section> -->

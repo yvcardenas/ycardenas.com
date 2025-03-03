@@ -1,80 +1,7 @@
-:root {
-    --main-bg-color: #FFF0F5;
-    --accent-color: #FBAED2;
-    --main-font: "Cormorant Garamond", "Times New Roman", Times, serif;
-}
-
-/* CSS Flexbox for nav bar*/
-.navbar {
-    /* position: fixed; */
-    display: flex;
-    align-items: center;
-    background-color: #FFF0F5;
-    justify-content: space-around;
-    padding: 0.5em, 1em;
-    font-size: 1.2em;
-}
-
-.logo {
-    max-width: 3em;
-    margin-right: 1rem;
-}
-
-.navbar h1 {
-    margin-right: auto;
-}
-
-.nav-menu {
-    display: flex;
-    list-style-type: none;
-    gap: 1rem; 
-    justify-content: center;
-    padding-right: 2em;
-}
-
-.nav-menu li a {
-    text-decoration: none;
-    padding: 0.5em 1em;
-    color: #333;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.nav-menu li a:hover {
-    background-color: #FBAED2;
-    transform: scale(1.05);
-}
-
-.menu-icon{
-    display: none;
-    cursor: pointer;
-    width: 1.5em;
-    height: 1em;
-    position: relative;
-    padding-right: 2em;
-}
-
-#menu-toggle{
-    display: none;
-}
-
-.menu-icon span {
-    display: block;
-    height: 3px;
-    background-color: #333;
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
-body{
-    background-color: #FFF0F5;
-    background-color: var(--main-bg-color, #FFF0F5);
-    font-family: var(--main-font, Times, serif);
-}
-
 main{
     margin: 2em;
     padding: 1em;
+    color: var(--text-color);
 }
 
 .title {
@@ -88,8 +15,8 @@ main{
 }
 
 section:has(h2, h3) {
-    background-color: #FFF0F5;
-    background-color: color-mix(in srgb, #FFF0F5 60%, white 40%);
+    background-color: var(--main-bg-color);
+    background-color: color-mix(in srgb, var(--main-bg-color) 60%, white 40%);
     padding: 1rem;
     border-radius: 10px;
     margin-bottom: 2rem;
@@ -98,45 +25,6 @@ section:has(h2, h3) {
 
 /* Media Queries for MOBILE */
 @media (max-width: 950px) {
-    .menu-icon{
-        display: block;
-    }
-
-    .nav-menu{
-        display: none;
-        position: absolute;
-        background-color: #FBAED2;
-        top: 3.5em;
-        right: 2em;
-        flex-direction: column;
-        border: 1px solid #ccc;
-        padding: 1em
-    }
-
-    .nav-menu li{
-        margin: 0.5em 0;
-    }
-    .nav-menu li a:hover{
-        margin: 0.5em 0;
-        color:#FFF0F5;
-    }
-
-    #menu-toggle:checked ~ .nav-menu {
-     display: flex; 
-    }
-    
-    #menu-toggle:checked ~ .menu-icon span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    #menu-toggle:checked ~ .menu-icon span:nth-child(2) {
-        opacity: 0;
-    }
-
-    #menu-toggle:checked ~ .menu-icon span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
     main{
         flex-direction: column;
     }

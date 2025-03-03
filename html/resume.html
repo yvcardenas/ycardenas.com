@@ -5,7 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="../media/slogoblack.png"/>
-        <link rel="stylesheet" href="../css/resume.css">
+        <link rel="stylesheet" href="../css/styles.css" media="screen">
+        <link rel="stylesheet" href="../css/resume.css" media="screen">
+        <script src="/js/theme.js" defer></script>
         <!-- Custome Font from Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +16,14 @@
     <body>
         <header>
             <nav class="navbar">
-                <img src="/media/slogoblack.png" alt="My Logo" class="logo"/>
+                <img src="/media/slogoblack.png" alt="My Logo" class="logo" id="logo"/>
                 <h1>ycardenas.com</h1>
-
+                <label class="theme-toggle js-theme-toggle">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round">
+                        <span class="toggle-icon" id="toggle-icon">🌙</span>
+                    </span>
+                </label>
                 <input type="checkbox" id="menu-toggle"/>
 
                 <label for="menu-toggle" class="menu-icon">
@@ -50,10 +57,10 @@
                 <h2>Skills</h2>
                 <div>
                     <table>
-                        <colgroup>
+                        <!-- <colgroup>
                             <col style="background-color: #eee;">
                             <col style="background-color: #fff;">
-                        </colgroup>
+                        </colgroup> -->
                         <tr>
                             <td><strong>Programming Languages</strong></td>
                             <td>C++, Python, Java, HTML, CSS</td>

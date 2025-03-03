@@ -1,158 +1,151 @@
-:root {
-    --main-bg-color: #FFF0F5;
-    --accent-color: #FBAED2;
-    --main-font: "Cormorant Garamond", "Times New Roman", Times, serif;
-}
-
-/* CSS Flexbox for nav bar*/
-.navbar {
-    /* position: fixed; */
+main{
     display: flex;
-    align-items: center;
-    background-color: #FFF0F5;
-    justify-content: space-around;
-    padding: 0.5em, 1em;
-    font-size: 1.2em;
-}
-
-.logo {
-    max-width: 3em;
-    margin-right: 1rem;
-}
-
-.navbar h1 {
-    margin-right: auto;
-}
-
-.nav-menu {
-    display: flex;
-    list-style-type: none;
-    gap: 1rem; 
     justify-content: center;
-    padding-right: 2em;
+    align-items: center;
+    padding: 0 2rem;
+    /* padding-top: 0; */
+    /* height: 100vh; */
 }
 
-.nav-menu li a {
-    text-decoration: none;
-    padding: 0.5em 1em;
-    color: #333;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.3s;
-}
+.contact-form-container{
+    color:black;
+    background-color: #FFF;
+    padding: 2rem;
+    border-radius: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    margin: 2rem auto;
 
-.nav-menu li a:hover {
-    background-color: #FBAED2;
-    transform: scale(1.05);
-}
-
-.menu-icon{
-    display: none;
-    cursor: pointer;
-    width: 1.5em;
-    height: 1em;
-    position: relative;
-    padding-right: 2em;
-}
-
-#menu-toggle{
-    display: none;
-}
-
-.menu-icon span {
-    display: block;
-    height: 3px;
-    background-color: #333;
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
-body{
-    background-color: #FFF0F5;
-    background-color: var(--main-bg-color, #FFF0F5);
-    font-family: var(--main-font, Times, serif);
-
-    main{
-        padding: 2rem;
-        
-        .title{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 2rem;
-            font-size: 2em;
-        }
-        .message{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-bottom: 2rem;
-        }
+    h2{
+        margin-top: 0;
+        text-align: center;
     }
+
+    .form-field{
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+
+    label{
+        display: block;
+        margin-bottom: 0.25rem;
+        font-weight: bold;
+    }
+
+    input, textarea{
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 0.5em;
+        box-sizing: border-box;
+        font-family: var(--main-font, Times, serif);
+    }
+
+    /* HTML and CSS ONLY Validation */
+    input:required, textarea:required {
+        border-left: 4px solid pink; 
+    }
+
+    input:user-valid, textarea:user-valid{
+        border-color: #006400;
+    }
+
+    input:user-invalid, textarea:user-invalid{
+        border-color: #B00020;
+    }
+
+    input::placeholder, textarea::placeholder{
+        font-style: italic;
+        color: #888;
+    }
+
+    input:focus, textarea:focus{
+        outline: none;
+        border-color: #007bff;
+    }
+
+    .required{
+        color: red;
+    }
+
+    textarea{
+        resize: vertical;
+    }
+
+    .sumbit-button{
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        border: none;
+        border-radius: 0.5em;
+        padding: 0.75rem;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+        font-family: var(--main-font, Times, serif);
+    }
+
+    .sumbit-button:hover{
+        background-color: var(--main-bg-color);
+    }
+
+    .error-message, .info-message {
+        display: block;
+        min-height: 1.25rem;;
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        border-radius: 0.5em;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .error-message.show{
+        opacity: 1;
+        color: #B00020;
+    }
+
+    .info-message.show{
+        opacity: 1;
+        color: #006400;
+
+    }
+
 }
 
 .links{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
-    padding-left: 3rem;
-    padding-right: 3rem;
-   
+    padding: 2rem 3rem;
     justify-content: center;
     align-items: center;
 
     img{
-        max-width: 100px;
+        max-width: 80px;
         height: auto;
         display: block;
         margin: 0 auto;
     }
 }
 
-/* Media Queries for MOBILE */
+/* Media Queries for Smaller Screen and Mobile */
 @media (max-width: 950px) {
-    .menu-icon{
-        display: block;
-    }
-
-    .nav-menu{
-        display: none;
-        position: absolute;
-        background-color: #FBAED2;
-        top: 3.5em;
-        right: 2em;
-        flex-direction: column;
-        border: 1px solid #ccc;
-        padding: 1em
-    }
-
-    .nav-menu li{
-        margin: 0.5em 0;
-    }
-    .nav-menu li a:hover{
-        margin: 0.5em 0;
-        color:#FFF0F5;
-    }
-
-    #menu-toggle:checked ~ .nav-menu {
-     display: flex; 
-    }
-    
-    #menu-toggle:checked ~ .menu-icon span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    #menu-toggle:checked ~ .menu-icon span:nth-child(2) {
-        opacity: 0;
-    }
-
-    #menu-toggle:checked ~ .menu-icon span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
     main{
         flex-direction: column;
     }
 
+    .contact-form-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .submit-button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px){
     .links{
         grid-template-columns: 1fr;
     }
