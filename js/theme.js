@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateTheme(theme){
         document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
-        toggleIcon.textContent = theme === "dark" ? "🌞" : "🌙";
+        toggleIcon.textContent = theme === "dark" ? "🌙" : "☀️";
         logo.src = theme == "dark" ? "/media/slogopink.png" : "/media/slogoblack.png";
     }
 
