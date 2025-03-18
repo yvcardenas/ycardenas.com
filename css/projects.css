@@ -3,12 +3,43 @@ main{
 }
 
 main > section {
-
     h2{
         text-align: center;
-        font-size: 3em;
+        font-size: 2.5em;
         margin-bottom: 1.5rem;
         color: var(--text-color);
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .button-container button {
+        padding: 0.5em 1em;
+        font-size: 1em;
+        border: none;
+        border-radius: 8px;
+        background-color: var(--accent-color);
+        cursor: pointer;
+        font-family: var(--main-font, Times, serif);
+        transition: background-color 0.3s, transform 0.3s ease;
+    }
+    
+    .button-container button:hover {
+        background-color: white;
+        transform: scale(1.05);
+    }
+
+    #projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1rem;
+        justify-content: center;
+        width: 50%;
+        margin: 0 auto;
     }
 
     ul {
@@ -98,12 +129,4 @@ main > section {
             font-size: 1.2em;
         }
     }
-}
-
-footer{
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
 }

@@ -20,13 +20,14 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-right: 2em;
+    padding-right: 2rem;
     font-size: 1.5em;
 }
 
 .typewriter {
     width: 0;
     max-width: 100%;
+    height: auto;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid var(--text-color);
@@ -34,6 +35,7 @@ main{
     animation:
         typing 3s steps(10) infinite forwards,
         blink 0.7s infinite;
+
 
     font-size: clamp(3rem, 10vw, 6rem);
     letter-spacing: 2px;
@@ -78,10 +80,9 @@ main{
     }
 }
 
-footer{
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+@media (max-height: 600px) {
+    main{
+        height: auto;
+    }
+    
 }
