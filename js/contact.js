@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Capture the data of each mistake into an array of bjects formErrors[]
     form.addEventListener("submit", async (event) => {
-        // event.preventDefault();
-        // formErrors.length = 0; // Reset errors
+        event.preventDefault();
+        formErrors.length = 0; // Reset errors
         errorOutput.textContent = ""; // Clear any existing error messages
         infoOutput.textContent = ""; // Clear any existing info messages
 
@@ -92,17 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: formData
             });
 
-            if (response.ok) {
-                form.reset();
-                showSuccess("Thank you for reaching out! I will get back to you shortly. <3");
-              } else {
-                showError("Oops, something went wrong. Please try again later.");
-              }
+            infoOutput.textContent = "Thank you for reaching out! I will get back to you shortly. <3";
         } catch (error) {
             console.error("Error submitting form:", error);
             showError("Oops, something went wrong. Please try again later.");
         }
-        // form.sumbit();
     });
 
 });
