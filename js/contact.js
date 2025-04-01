@@ -54,9 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Capture the data of each mistake into an array of bjects formErrors[]
-    form.addEventListener("submit", (event) => {
-        //event.preventDefault();
-        //formErrors.length = 0; // Reset errors
+    form.addEventListener("submit", async (event) => {
+        // event.preventDefault();
+        // formErrors.length = 0; // Reset errors
+        errorOutput.textContent = ""; // Clear any existing error messages
+        infoOutput.textContent = ""; // Clear any existing info messages
 
         form.querySelectorAll(":invalid").forEach(field => {
             formErrors.push({ field: field.name, error: field.validationMessage });
@@ -81,8 +83,26 @@ document.addEventListener("DOMContentLoaded", () => {
             return; // Stop submission if errors exist
         }
 
-        infoOutput.textContent = "Thank you for reaching out! I will get back to you shortly. <3";
-        form.sumbit();
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("https://formsubmit.co/ygcrdns@gmail.com", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                form.reset();
+                showSuccess("Thank you for reaching out! I will get back to you shortly. <3");
+              } else {
+                showError("Oops, something went wrong. Please try again later.");
+              }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            showError("Oops, something went wrong. Please try again later.");
+        }
+        // form.sumbit();
     });
 
 });
