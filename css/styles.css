@@ -11,6 +11,10 @@
     --text-color: white;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+}
 /* Dark/Light Mode Toggle Button */
 .theme-toggle {
     display: flex;
