@@ -11,17 +11,13 @@
     --text-color: white;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-}
 /* Dark/Light Mode Toggle Button */
 .theme-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 1.6rem;
+    min-width: 3rem;
+    min-height: 1.7rem;
     position: relative;
     cursor: pointer;
 }
@@ -32,6 +28,21 @@
     height: 0;
 }
 
+input:checked + .slider {
+    background-color: var(--accent-color);
+    /* padding: 0 0.2rem; */
+    /* justify-content: center; */
+    /* justify-content: flex-end; */
+}
+
+input:checked + .slider:before {
+    transform: translateX(1.5rem) rotate(360deg);
+}
+
+input:checked + .slider .toggle-icon {
+    transform: translateX(1.55rem) rotate(360deg);
+}
+
 .slider {
     position: absolute;
     width: 100%;
@@ -40,47 +51,39 @@
     border-radius: 50px;
     transition: background-color 0.3s;
     display: flex;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
+    /* margin-right: 2rem; */
+    /* justify-content: left; */
+    /* justify-content: flex-start; */
     padding: 0 0.2rem;
 }
 
 .slider:before {
     content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    height: 1.4rem;
-    width: 1.4rem;
-    left: 0.2rem;
-    bottom: 0.1rem;
+    height: 1.5rem;
+    width: 1.5rem;
     background-color: white;
-    border-radius: 50%;
+    border-radius: 50px;
     transition: transform 0.3s;
 }
 
 .toggle-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    left: 0.35rem;
-    font-size: 1rem;  
+    height: 1.4rem;
+    width: 1.4rem;
     transition: transform 0.3s;
 }
 
 .js-theme-toggle {
     display: none;
-}
-
-  
-input:checked + .slider {
-    background-color: var(--accent-color);
-    justify-content: flex-end;
-}
-
-input:checked + .slider:before {
-    transform: translateX(1.4rem);
-}
-
-input:checked + .slider .toggle-icon {
-    transform: translateX(1.47rem) rotate(360deg);
-    content: "🌞"; 
 }
 
 /* CSS Flexbox for nav bar*/
@@ -176,9 +179,9 @@ footer{
         display: block;
     }
 
-    .theme-toggle{
+    /* .theme-toggle{
         margin-right: 1rem;
-    }
+    } */
 
     .nav-menu{
         display: none;
