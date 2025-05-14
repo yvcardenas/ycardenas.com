@@ -20,7 +20,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2em;
+    padding: 3em;
 }
 
 .profile-pic img{
