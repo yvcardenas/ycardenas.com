@@ -24,30 +24,34 @@ main{
     font-size: 1.5em;
 }
 
-.typewriter {
-    width: 0;
-    max-width: 100%;
-    height: auto;
+.typewriter-animation {
+    /* Ensures text does not wrap to the next lime */
     white-space: nowrap;
+    /* Hides any overflowed text */
     overflow: hidden;
+    /* Set intial width to 0% */
+    width: 0;
+
+    font-family: var(--font-family);
+    font-size: clamp(1rem, 10vw, 6rem);
     border-right: 3px solid var(--text-color);
 
-    animation:
-        typing 3s steps(10) infinite forwards,
-        blink 0.7s infinite;
-
-
-    font-size: clamp(3rem, 10vw, 6rem);
-    letter-spacing: 2px;
+    animation: 
+        typing 4s steps(20, end) infinite,
+        blink 1s infinite;
 }
 
 @keyframes typing {
-    from {
+    /* from {
         width: 0;
     }
     to {
-        width: 10ch;
-    }
+        width: 11.5ch;
+    } */
+    0% {width: 0;}
+    40% {width: 11.5ch;}
+    60% {width: 11.5ch;}
+    100% {width: 0;}
 }
 
 @keyframes blink {
