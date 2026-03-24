@@ -1,7 +1,7 @@
-main{
+.intro-section {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: 65vh;
     justify-content: center;
     align-items: center;
 }
@@ -24,8 +24,9 @@ main{
     font-size: 1.5em;
 }
 
+/* CSS for typewriter animation on the left section of the home screen */
 .typewriter-animation {
-    /* Ensures text does not wrap to the next lime */
+    /* Ensures text does not wrap to the next line */
     white-space: nowrap;
     /* Hides any overflowed text */
     overflow: hidden;
@@ -42,15 +43,12 @@ main{
 }
 
 @keyframes typing {
-    /* from {
-        width: 0;
-    }
-    to {
-        width: 11.5ch;
-    } */
-    0% {width: 0;}
+    0% {width: 0;} 
+    /* Completely writes out the text */
     40% {width: 11.5ch;}
+    /* Pauses with blinking cursor */
     60% {width: 11.5ch;}
+    /* Completely erases the text */
     100% {width: 0;}
 }
 
@@ -66,9 +64,43 @@ main{
     }
 }
 
+.board-intro{
+    text-align: center;
+    font-size: 1.5em;
+    margin: 2.5rem 0;
+}
+/* Styling for board pictures */
+.board-section{
+    padding: 2rem 1.5rem;
+}
+.board{
+    margin: 0 auto;
+    max-width: 1400px;
+}
+.card{
+    /* Lets masonry layout determine the width */
+    width: 250px; 
+    margin-bottom: 1rem;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.card img{
+    width: 100%;
+    /* height: auto; */
+    display: block;
+    border-radius: 16px;
+}
+.card.show{
+    opacity: 1;
+}
+
 /* Media Queries for MOBILE */
 @media (max-width: 950px) {
-    main{
+    .intro-section{
         flex-direction: column;
     }
 
@@ -85,7 +117,7 @@ main{
 }
 
 @media (max-height: 600px) {
-    main{
+    .intro-section{
         height: auto;
     }
     

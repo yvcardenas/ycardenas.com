@@ -28,7 +28,7 @@
                 <input type="checkbox" id="menu-toggle"/>
 
                 <label for="menu-toggle" class="menu-icon">
-                    <span></span>
+                    <span></span>   
                     <span></span>
                     <span></span>
                 </label>
@@ -55,14 +55,23 @@
             </noscript>
         </header>
         <main>
-            <section class="left">
-                <h2 class="typewriter-animation">Hello, World!</h2>
+            <section class = "intro-section">
+                <section class="left">
+                    <h2 class="typewriter-animation">Hello, World!</h2>
+                </section>
+                <article class="right">
+                    <p>
+                        My name is Yvanna Cardenas. <br><br>I am a student at the University of California, San Diego majoring in <b>Computer Science</b> and minoring in <i>Entrepreneurship and Innovation</i>. <br><br> I hope you enjoy your visit!
+                    </p>
+                </article>
             </section>
-            <article class="right">
-                <p>
-                    My name is Yvanna Cardenas. <br><br>I am a student at the University of California, San Diego majoring in <b>Computer Science</b> and minoring in <i>Entrepreneurship and Innovation</i>. <br><br> I hope you enjoy your visit!
-                </p>
-            </article>
+            <p class="board-intro">Scroll to view a collection of things and people that I love, my visual diary!</p>
+            <section class="board-section">
+                <div class = "board"></div>
+                <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+                <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+                <script src="/js/board.js"></script>
+            </section>
         </main>
         <footer>
             <p>&copy; 2025 Yvanna Cardenas</p>
