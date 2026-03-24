@@ -80,9 +80,9 @@
 .card{
     /* Lets masonry layout determine the width */
     width: 250px; 
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
 
     opacity: 0;
@@ -90,7 +90,6 @@
 }
 .card img{
     width: 100%;
-    /* height: auto; */
     display: block;
     border-radius: 16px;
 }

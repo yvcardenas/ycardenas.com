@@ -1,37 +1,29 @@
 const board = document.querySelector('.board');
 
-let i = 1;
+const totalImages = 51;
 
-function loadImage(){
-    const img = new Image();
+for(let i = 1; i <= totalImages; i++){
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const img = document.createElement("img");
     img.src = `../media/board-pics/img${i}.jpeg`;
-
+    // Lazy loading attribute to improve performance by loading images only when they are about to enter the viewport
+    img.loading = "lazy";
     img.onload = () => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-
-        card.appendChild(img);
-        board.appendChild(card);
-
-        requestAnimationFrame(() => {
-            card.classList.add("show");
-        });
-
-        i++;
-        loadImage();
+        card.classList.add('show');
     };
-    // When no nmore images are found it stops
-    img.onerror = () => {
-        imagesLoaded(board, () => {
-            new Masonry(board, {
-                itemSelector: '.card',
-                columnWidth: 250,
-                gutter: 16, 
-                // percentPosition: true
-                fitWidth: true
-            });
-        });
-    };
+    card.appendChild(img);
+    board.appendChild(card);
 }
 
-loadImage();
+const masonry = new Masonry(board, {
+    itemSelector: '.card',
+    columnWidth: 250,
+    gutter: 16,
+    fitWidth: true
+});
+
+imagesLoaded(board).on('progress', function() {
+    masonry.layout();
+});
