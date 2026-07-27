@@ -7,9 +7,10 @@ for(let i = 1; i <= totalImages; i++){
     card.classList.add("card");
 
     const img = document.createElement("img");
-    img.src = `../media/board-pics/img${i}.jpeg`;
+    img.src = `../media/board-pics/img${i}.webp`;
     // Lazy loading attribute to improve performance by loading images only when they are about to enter the viewport
     img.loading = "lazy";
+    img.alt = "";
     img.onload = () => {
         card.classList.add('show');
     };

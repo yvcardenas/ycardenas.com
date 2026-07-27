@@ -138,11 +138,12 @@ input:checked + .slider .toggle-icon {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px; 
+    gap: 5px;
     cursor: pointer;
     width: 2rem;
     height: 2rem;
     padding: 0 1rem;
+    flex-shrink: 0;
 }
 
 #menu-toggle{
