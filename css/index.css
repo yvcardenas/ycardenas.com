@@ -33,21 +33,24 @@
     /* Set intial width to 0% */
     width: 0;
 
-    font-family: var(--font-family);
+    font-family: var(--secondary-font);
+    font-weight: 400;
+    font-style: italic;
     font-size: clamp(1rem, 10vw, 6rem);
     border-right: 3px solid var(--text-color);
 
+    /* TODO: Look into animation so it blinks with every new character (maybe need to space out the steps) */
     animation: 
-        typing 4s steps(20, end) infinite,
+        typing 6s steps(23, end) infinite,
         blink 1s infinite;
 }
 
 @keyframes typing {
     0% {width: 0;} 
     /* Completely writes out the text */
-    40% {width: 11.5ch;}
+    40% {width: 12ch;}
     /* Pauses with blinking cursor */
-    60% {width: 11.5ch;}
+    60% {width: 12ch;}
     /* Completely erases the text */
     100% {width: 0;}
 }

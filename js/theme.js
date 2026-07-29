@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
         toggleIcon.textContent = theme === "dark" ? "🌙" : "☀️";
-        logo.src = theme == "dark" ? "/media/slogopink.png" : "/media/slogoblack.png";
+        logo.src = theme === "dark" ? "/media/logodark.webp" : "/media/logolight.webp";
     }
 
     toggleSwitch.checked = currentTheme === "dark";

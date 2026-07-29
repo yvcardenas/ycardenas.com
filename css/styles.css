@@ -3,6 +3,9 @@
     --accent-color: #FBAED2;
     --text-color: black;
     --main-font: "Cormorant Garamond", "Times New Roman", Times, serif;
+    --secondary-font: "IM Fell DW Pica", "Times New Roman", Times, serif;
+    font-weight: 400;
+
 }
 
 [data-theme="dark"]{
@@ -20,6 +23,7 @@
     min-height: 1.7rem;
     position: relative;
     cursor: pointer;
+    margin-left:1em;
 }
 
 .theme-toggle input{
@@ -93,31 +97,33 @@ input:checked + .slider .toggle-icon {
     align-items: center;
     background-color: var(--main-bg-color);
     justify-content: space-between;
-    padding: 0.8em, 1.5em;
+    padding: 0 1.5em;
     font-size: 1.2em;
 }
 
 .navbar .theme-toggle {
     display: flex;
     align-items: center;
-    margin-right: 1rem; /* Space between toggle and menu */
+    /* margin-right: 2rem; Space between toggle and edge */
 }
 
 .logo {
-    max-width: 3em;
-    margin-right: 1rem;
+    max-width: 2em;
+    /* margin-left: 2rem; */
 }
 
-.navbar h1 {
+/* .navbar h1 {
     margin-right: auto;
-}
+} */
 
 .nav-menu {
     display: flex;
     list-style-type: none;
-    gap: 1rem; 
+    /* gap: 1rem;  */
     justify-content: center;
     padding-right: 2em;
+    /* margin-right: auto; */
+    margin-right: auto;
 }
 
 .nav-menu li a {
@@ -140,7 +146,7 @@ input:checked + .slider .toggle-icon {
     align-items: center;
     gap: 5px;
     cursor: pointer;
-    width: 2rem;
+    width: 1.5rem;
     height: 2rem;
     padding: 0 1rem;
     flex-shrink: 0;
@@ -175,9 +181,15 @@ footer{
 }
 
 /* Media Queries for MOBILE */
-@media (max-width: 1000px) {
+@media (max-width: 850px) {
+    .navbar {
+        margin-top: 1.25rem;
+
+    }
+
     .menu-icon{
         display: block;
+        margin-left: auto;
     }
 
     /* .theme-toggle{
@@ -188,11 +200,12 @@ footer{
         display: none;
         position: absolute;
         background-color: var(--accent-color);
-        top: 3.5em;
+        top: 2em;
         right: 2em;
         flex-direction: column;
-        border: 1px solid var(--text-color);
-        padding: 1em
+        border: 0.5px solid var(--text-color);
+        border-radius: 8px;
+        padding: 1em;
     }
 
     .nav-menu li{
