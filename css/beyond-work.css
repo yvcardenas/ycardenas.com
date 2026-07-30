@@ -1,0 +1,64 @@
+main {
+    /* display: grid; */
+    /* grid-template-columns: 3fr 1fr; */ */
+    /* grid-template-rows: auto auto auto; */
+    /* /* gap: 1rem; */
+    padding: 2rem;
+}
+.hobbies {
+    margin: 0 4em;
+}
+
+.playlists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
+.board-intro{
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 2em;
+    margin-top: 2em;
+}
+/* Styling for board pictures */
+.board-section{
+    padding: 2rem;
+    /* margin: 0 auto; */
+}
+.board{
+    margin: 0 auto;
+    max-width: 1400px;
+}
+.card{
+    /* Lets masonry layout determine the width */
+    width: 250px; 
+    margin-bottom: 16px;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.card img{
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+}
+.card.show{
+    opacity: 1;
+}
+
+/* Media Queries for MOBILE */
+@media (max-width: 950px) {
+    main{
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .playlists {
+        grid-template-columns: 1fr; 
+    }
+}

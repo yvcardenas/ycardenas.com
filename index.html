@@ -21,7 +21,9 @@
         <!-- Linking stylsheets and scripts -->
         <link rel="stylesheet" href="css/styles.css" media="screen">
         <link rel="stylesheet" href="css/index.css" media="screen">
+        <link rel="stylesheet" href="css/contact.css" media="screen">
         <script src="/js/theme.js" defer></script>
+        <script src="/js/contact.js" defer></script> 
         <!-- Custom Font from Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +32,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/contact.css" media="screen">
         <!-- Theme Toggle Script -->
         <script>
             if (localStorage.getItem('theme') === 'dark') {
@@ -47,10 +50,11 @@
 
                 <ul class="nav-menu"> 
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="/html/about.html">About Me</a></li>
-                    <li><a href="/html/projects.html">Projects</a></li>
-                    <li><a href="/html/resume.html">Resume</a></li>
-                    <li><a href="/html/contact.html">Contact Me</a></li>
+                    <!-- <li><a href="/html/about.html">About Me</a></li> -->
+                    <!-- <li><a href="/html/projects.html">Projects</a></li> -->
+                    <li><a href="/html/portfolio.html">Portfolio</a></li>
+                    <li><a href="/html/beyond-work.html">Beyond Work</a></li>
+                    <!-- <li><a href="/html/contact.html">Contact Me</a></li> -->
                 </ul>
 
                 <label for="menu-toggle" class="menu-icon">
@@ -83,12 +87,84 @@
                     </p>
                 </article>
             </section>
-            <p class="board-intro">Scroll to view a collection of things and people that I love, my visual diary!</p>
-            <section class="board-section">
-                <div class = "board"></div>
-                <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-                <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-                <script src="/js/board.js"></script>
+            <section class="about-me">
+                <section class="bio">
+                    <h1>Get to Know Me!</h1>
+                    <p>
+                    My name is Yvanna Cardenas Beltran. I am a computer science student
+                    enrolled in the University of California, San Diego, class of June 2026. I seek
+                    technology skills because of my urge to solve problems, work well in a team,
+                    and develop functional solutions that offer a voice to the community. <br><br>
+
+                    I have a strong foundation in software development. And I have further
+                    strengthened my skills with courses in data structures, algorithms, computer
+                    architecture, and real-world projects. For instance, I created a space-themed,
+                    interactive Developer Journal web app for users to organize tasks and reflect
+                    on their development. I also built an entertainment recommender app with
+                    Flask, AWS, and OpenAI to enhance decision-making. These projects have
+                    deepened my technical expertise and strengthened my ability to deliver user-
+                    centered solutions.<br><br>
+
+                    Beyond coding, I thrive in genuinely collaborative environments where we
+                    share ideas, face challenges as a team, and innovation is made alive. I pride
+                    myself on my communication, empathy, and the positivity I can add to any
+                    team. I provide strong relationships and a people-first approach, which are as
+                    crucial to success as technical skills.<br><br>
+
+                    I am passionate about using technology to create impact. Whether through
+                    tools to improve everyday living or systems that attempt to solve critical
+                    challenges, I aim to build impactful solutions. I’m always keen to learn and
+                    grow in projects that espouse innovation, inclusivity, and community. My
+                    values align with those values.
+                    </p>
+                </section>
+                <section class="profile-pic">
+                    <img src="../media/profile-pic.jpeg" alt="Profile Picture">
+                </section>
+            </section>
+            <section class="contact-form-container">
+                <h2>Let's Connect! </h2>
+                <p>I am open to discussing opportunities, sharing ideas, or just talking about how technology will shape the future.</p>
+                <form id="contact-form">
+                    <input type="hidden" name="possible_bot" value="true">
+                    <input type="hidden" id="form-errors" name="form-errors" value="">
+                    <input type="hidden" name="_captcha" value="true">
+
+                    <div class="form-field">
+                        <label for="fname">First Name <span class="required">*</span></label>
+                        <input type="text" id="fname" name="firstname" required minlength="1" maxlength="30" pattern="[A-Za-z\s]+" placeholder="Enter your first name.">
+                    </div>
+                    <div class="form-field">
+                        <label for="lname">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lname" name="lastname" required minlength="1" maxlength="30" pattern="[A-Za-z\s]+" placeholder="Enter your last name.">
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="jane.doe@example.com">
+                    </div>
+                    <div class="form-field">
+                        <label for="comments">Comments <span class="required">*</span></label>
+                        <textarea type="message" id="message" name="message" rows="5" required minlength="5" maxlength="300" placeholder="Your comments .. (Must be 5-300 characters.)"></textarea>
+                    </div>
+                    <button type="submit" class="sumbit-button">Send Message!</button>
+
+                    <!-- Output Elements -->
+                    <output id="errorOutput" class="error-message" aria-live="polite"></output>
+                    <output id="infoOutput" class="info-message" aria-live="polite"></output>
+                </form>
+                <!-- <div class="links">
+                    <a href="https://github.com/yvcardenas" target="_blank">
+                        <img src="../media/githublogo.png" alt="GitHub Logo" class="contact-logo">
+                    </a>
+    
+                    <a href="https://www.linkedin.com/in/y-cardenas/" target="_blank">
+                        <img src="../media/linkedinlogo.png" alt="LinkedIn Logo" class="contact-logo">
+                    </a>
+    
+                    <a href="mailto:yvcardenas@ucsd.edu" target="_blank">
+                        <img src="../media/emaillogo.png" alt="Email Logo" class="contact-logo">
+                    </a> -->
+                </div>
             </section>
         </main>
         <footer>
