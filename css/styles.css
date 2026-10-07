@@ -181,7 +181,7 @@ footer{
 }
 
 /* Media Queries for MOBILE */
-@media (max-width: 850px) {
+@media (max-width: 950px) {
     .navbar {
         margin-top: 1.25rem;
 

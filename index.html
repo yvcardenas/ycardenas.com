@@ -17,13 +17,15 @@
         <meta name="twitter:description" content="Portfolio of Yvanna Cardenas, a Computer Science graduate at UC San Diego.">
         <meta name="twitter:image" content="https://ycardenas.com/media/profilepic.jpg">
         <!-- Icon for different themes -->
-        <link rel="icon" type="image/svg+xml" href="/media/icon.webp"/>
+        <link rel="icon" type="image/webp" href="/media/icon.webp"/>
         <!-- Linking stylsheets and scripts -->
         <link rel="stylesheet" href="css/styles.css" media="screen">
         <link rel="stylesheet" href="css/index.css" media="screen">
         <link rel="stylesheet" href="css/contact.css" media="screen">
-        <script src="/js/theme.js" defer></script>
-        <script src="/js/contact.js" defer></script> 
+        <link rel="stylesheet" href="css/one-page.css" media="screen">
+        <script src="/js/navigation.js" defer></script>
+        <script src="/js/board.js" defer></script>
+        <script src="/js/contact.js" defer></script>
         <!-- Custom Font from Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,54 +34,36 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../css/contact.css" media="screen">
-        <!-- Theme Toggle Script -->
-        <script>
-            if (localStorage.getItem('theme') === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                document.getElementById('toggle-icon').textContent = '☀️';
-            }
-        </script>
     </head>
     <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
         <header>
-            <nav class="navbar">
-                <img src="/media/logolight.webp" alt="My Logo" class="logo" id="logo"/>
-                <!-- <h1>ycardenas.com</h1> -->
-                <input type="checkbox" id="menu-toggle"/>
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="#home" aria-label="Yvanna Cardenas, home"><img src="/media/logolight.webp" alt="" class="logo" id="logo"/></a>
+                <button type="button" class="menu-button" aria-expanded="false" aria-controls="navigation">Menu</button>
 
-                <ul class="nav-menu"> 
-                    <li><a href="index.html">Home</a></li>
-                    <!-- <li><a href="/html/about.html">About Me</a></li> -->
-                    <!-- <li><a href="/html/projects.html">Projects</a></li> -->
-                    <li><a href="/html/portfolio.html">Portfolio</a></li>
-                    <li><a href="/html/beyond-work.html">Beyond Work</a></li>
-                    <!-- <li><a href="/html/contact.html">Contact Me</a></li> -->
+                <ul class="nav-menu" id="navigation">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#beyond-work">Beyond Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
 
-                <label for="menu-toggle" class="menu-icon">
-                    <span></span>   
-                    <span></span>
-                    <span></span>
-                </label>
-
+<!-- Until I figure out everything, the theme toggle is commented out.
                 <label class="theme-toggle js-theme-toggle">
                     <input type="checkbox" id="theme-toggle">
                     <span class="slider round">
                         <span class="toggle-icon" id="toggle-icon">🌙</span>
                     </span>
-                </label>
+                </label> -->
             </nav>
-            <noscript>
-                <p style="color: red; text-align: center; padding: 0.5rem; font-size: 1rem;">
-                    Dark Mode is unavailable because JavaScript is disabled.
-                </p>
-            </noscript>
         </header>
-        <main>
-            <section class = "intro-section">
+        <main id="main-content">
+            <section class="intro-section" id="home">
                 <section class="left">
-                    <h2 class="typewriter-animation">Hello, World!</h2>
+                    <h1 class="typewriter-animation">Hello, World!</h1>
                 </section>
                 <article class="right">
                     <p>
@@ -87,12 +71,12 @@
                     </p>
                 </article>
             </section>
-            <section class="about-me">
+            <!-- First section where I introduce myself, my background and a photo of myself. -->
+            <section class="about-me" id="about">
                 <section class="bio">
-                    <h1>Get to Know Me!</h1>
+                    <h2>Get to Know Me!</h2>
                     <p>
-                    My name is Yvanna Cardenas Beltran. I am a computer science student
-                    enrolled in the University of California, San Diego, class of June 2026. I seek
+                    My name is Yvanna Cardenas Beltran. I graduated from the University of California, San Diego in June 2026 with a degree in computer science. I seek
                     technology skills because of my urge to solve problems, work well in a team,
                     and develop functional solutions that offer a voice to the community. <br><br>
 
@@ -119,10 +103,130 @@
                     </p>
                 </section>
                 <section class="profile-pic">
-                    <img src="../media/profile-pic.jpeg" alt="Profile Picture">
+                    <img src="/media/profile-pic.jpeg" alt="Yvanna Cardenas" loading="lazy">
                 </section>
             </section>
-            <section class="contact-form-container">
+            <!-- Section showcasing my projects-->
+            <section class="projects" id="projects" aria-labelledby="projects-heading">
+                <h2 id="projects-heading">Projects</h2>
+                    <!-- <div class="button-container">
+                        <button id="load-local">Load Local</button>
+                        <button id="load-remote">Load Remote</button>
+                    </div> -->
+                    <div id="projects-container"></div>
+                        <ul>
+                            <li>
+                                <h3>MyJob&More Website</h3>
+                                <a href="https://myjobandmore.com/" target="_blank" rel="noopener noreferrer">
+                                    <div class="img-wrapper">
+                                        <img src="/media/myjob&more.jpg" alt="MyJob&More Website Screenshot">
+                                    </div>
+                                </a>
+                                <div class="project-details">
+                                    <h3>Project Description</h3>
+                                    <p>A website for MyJob&More, a job search and career development platform.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <h3>Developer Journal</h3>
+                                <a href="https://github.com/yvcardenas/developer_journal" target="_blank" rel="noopener noreferrer">
+                                    <div class="img-wrapper">
+                                        <img src="/media/developer-journal.jpg" alt="Developer Journal Screenshot">
+                                    </div>
+                                </a>
+                                <div class="project-details">
+                                    <h3>Project Description</h3>
+                                    <p>An interactive, space-themed task management application designed to enhance productivity.</p>
+
+                                </div>
+                            </li>
+                            <li>
+                                <h3>Entertainment Recommender</h3>
+                                <a href="https://github.com/yvcardenas/entertainment_recommender" target="_blank" rel="noopener noreferrer">
+                                    <div class="img-wrapper">
+                                        <img src="/media/entertainment-recommender.jpg" alt="Entertainment Recommender Screenshot">
+                                    </div>
+                                </a>
+                                <div class="project-details">
+                                    <h3>Project Description</h3>
+                                    <p>A personalized entertainment recommender app using Python, Flask, and OpenAI's API.</p>
+                                </div>
+                            </li>
+                        </ul>
+            </section>
+
+            <section id="resume" class="resume" aria-labelledby="resume-heading">
+                <section class="education">
+                    <h2>Education</h2>
+                    <p><strong>University of California San Diego</strong> – La Jolla, CA<br>Bachelor's in Computer Science, Minor in Entrepreneurship and Innovation | Graduated: June 2026</p>
+                    <p><strong>MiraCosta Community College</strong> – Oceanside, CA<br>Computer Science Associate's | Mathematics Associate's | Graduated: May 2023</p>
+                    <p><strong>Relevant Coursework:</strong> Discrete Structures, Computer Architecture/Assembly Language, Data Structures & Algorithms, Software Engineering, Computer Graphics, Web Client Languages, Computer Operating Systems</p>
+                </section>
+
+                <section class="skills">
+                    <h2>Skills</h2>
+                    <div>
+                        <table>
+                            <tr>
+                                <td><strong>Programming Languages</strong></td>
+                                <td>C++, Python, Java, JavaScript, HTML, CSS, Clojure</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Libraries/Frameworks</strong></td>
+                                <td>React.js, Node.js, Flask</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tools/Platforms</strong></td>
+                                <td>Git, GitHub Actions, VS Code, AWS, Docker</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Databases</strong></td>
+                                <td>MongoDB</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Concepts</strong></td>
+                                <td>Object-Oriented Programming, DevOps, CI/CD pipelines, Agile methodologies</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Languages</strong></td>
+                                <td>Spanish (Native), English</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="experience">
+                    <h2>Experience</h2>
+                    <div>
+                        <h3>POiN Places | Data Science Intern</h3>
+                        <p><strong>Location:</strong> Madrid, Spain | June 2024 - August 2024</p>
+                        <p>Collaborated with the CEO to analyze and optimize the scalability of the company's data structure. Used Python, pandas, and MongoDB to improve data retrieval and organization processes, providing strategic recommendations to enhance data efficiency.</p>
+                    </div>
+                    <div>
+                        <h3>Software Engineering Project | Project Lead</h3>
+                        <p><strong>Location:</strong> La Jolla, CA | April 2024 - June 2024</p>
+                        <p>Led a team of 10 to design and develop a web application using agile methodologies. Facilitated meetings, managed project progress, delegated tasks, addressed risks, and ensured clear communication. Delivered the project on time, meeting all milestones.</p>
+                    </div>
+                    <div>
+                        <h3>MiraCosta College | Computer Science and Calculus Tutor</h3>
+                        <p><strong>Location:</strong> Oceanside, CA | August 2022 - January 2023</p>
+                        <p>Provided comprehensive academic support to students. Leveraged IDEs such as Replit and IntelliJ to facilitate hands-on learning in labs and projects. </p>
+                    </div>
+                </section>
+            </section>
+            <section id="beyond-work" aria-labelledby="beyond-work-heading">
+                <section class="hobbies">
+                    <h2 id="beyond-work-heading">Beyond Work</h2>
+                    <p>
+                        Outside of software engineering, I strive to be a well-rounded person with a mix of creative and mindful pursuits. As a self-proclaimed coffee enthusiast (some might say snob), I love exploring different brewing methods and discovering new roasts. Music is another passion of mine—I enjoy collecting vinyl records and curating playlists for any mood or occasion. Journaling helps me reflect and stay organized, while hot yoga keeps me grounded and active. These interests not only bring me joy but also shape my approach to problem-solving, creativity, and balance in both my personal and professional life.
+                    </p>
+                </section>
+                <p class="board-intro">Scroll to view a collection of things and people that I love, my visual diary!</p>
+                <section class="board-section">
+                    <div class = "board"></div>
+                </section>
+            </section>
+            <section class="contact-form-container" id="contact">
                 <h2>Let's Connect! </h2>
                 <p>I am open to discussing opportunities, sharing ideas, or just talking about how technology will shape the future.</p>
                 <form id="contact-form">
@@ -143,8 +247,8 @@
                         <input type="email" id="email" name="email" required placeholder="jane.doe@example.com">
                     </div>
                     <div class="form-field">
-                        <label for="comments">Comments <span class="required">*</span></label>
-                        <textarea type="message" id="message" name="message" rows="5" required minlength="5" maxlength="300" placeholder="Your comments .. (Must be 5-300 characters.)"></textarea>
+                        <label for="message">Comments <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="5" required minlength="5" maxlength="300" placeholder="Your comments .. (Must be 5-300 characters.)"></textarea>
                     </div>
                     <button type="submit" class="sumbit-button">Send Message!</button>
 
@@ -152,23 +256,23 @@
                     <output id="errorOutput" class="error-message" aria-live="polite"></output>
                     <output id="infoOutput" class="info-message" aria-live="polite"></output>
                 </form>
-                <!-- <div class="links">
-                    <a href="https://github.com/yvcardenas" target="_blank">
-                        <img src="../media/githublogo.png" alt="GitHub Logo" class="contact-logo">
+                <div class="links">
+                    <a href="https://github.com/yvcardenas" target="_blank" rel="noopener noreferrer">
+                        <img src="/media/githublogo.png" alt="GitHub Logo" class="contact-logo">
                     </a>
-    
-                    <a href="https://www.linkedin.com/in/y-cardenas/" target="_blank">
-                        <img src="../media/linkedinlogo.png" alt="LinkedIn Logo" class="contact-logo">
+
+                    <a href="https://www.linkedin.com/in/y-cardenas/" target="_blank" rel="noopener noreferrer">
+                        <img src="/media/linkedinlogo.png" alt="LinkedIn Logo" class="contact-logo">
                     </a>
-    
-                    <a href="mailto:yvcardenas@ucsd.edu" target="_blank">
-                        <img src="../media/emaillogo.png" alt="Email Logo" class="contact-logo">
-                    </a> -->
+
+                    <a href="mailto:yvcardenas@ucsd.edu" target="_blank" rel="noopener noreferrer">
+                        <img src="/media/emaillogo.png" alt="Email Logo" class="contact-logo">
+                    </a>
                 </div>
             </section>
         </main>
         <footer>
-            <p>&copy; 2025 Yvanna Cardenas</p>
+            <p>&copy; 2026 Yvanna Cardenas</p>
         </footer>
     </body>
 </html>

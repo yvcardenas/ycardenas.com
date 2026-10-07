@@ -1,30 +1,14 @@
 const board = document.querySelector('.board');
 
-const totalImages = 51;
-
-for(let i = 1; i <= totalImages; i++){
-    const card = document.createElement("div");
-    card.classList.add("card");
-
-    const img = document.createElement("img");
-    img.src = `../media/board-pics/img${i}.webp`;
-    // Lazy loading attribute to improve performance by loading images only when they are about to enter the viewport
-    img.loading = "lazy";
-    img.alt = "";
-    img.onload = () => {
-        card.classList.add('show');
-    };
-    card.appendChild(img);
-    board.appendChild(card);
+if (board) {
+    for (let i = 1; i <= 51; i++) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const img = document.createElement('img');
+        img.src = `/media/board-pics/img${i}.webp`;
+        img.loading = 'lazy';
+        img.alt = '';
+        card.appendChild(img);
+        board.appendChild(card);
+    }
 }
-
-const masonry = new Masonry(board, {
-    itemSelector: '.card',
-    columnWidth: 250,
-    gutter: 16,
-    fitWidth: true
-});
-
-imagesLoaded(board).on('progress', function() {
-    masonry.layout();
-});

@@ -10,5 +10,11 @@
         "image": "../media/entertainment-recommender.jpg",
         "description": "A recommender app using Python, Flask, and OpenAI's API.",
         "link": "https://github.com/yvcardenas/entertainment_recommender"
+    },
+    {
+        "title": "MyJob&More Website",
+        "image": "../media/myjob&more.jpg",
+        "description": "A website for MyJob&More, a job search and career development platform.",
+        "link": "https://myjobandmore.com/"
     }
 ]

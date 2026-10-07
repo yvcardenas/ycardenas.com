@@ -20,7 +20,7 @@ main{
 
 section:has(h2, h3) {
     background-color: var(--main-bg-color);
-    background-color: color-mix(in srgb, var(--main-bg-color) 60%, white 40%);
+    background-color: color-mix(in srgb, var(--main-bg-color) 10%, white 90%);
     padding: 1rem;
     border-radius: 10px;
     margin-bottom: 2rem;
